@@ -20,6 +20,8 @@ class Page:
         def convert_val_to_bytes(value):
             
             return val_to_bytes # return a list of 8 bytes made from value
+            
+        val_to_bytes = convert_val_to_bytes(value)
         '''
         #2) Identify the index of the next available spot in the bytearray
         start_index = self.num_records*8 - 1
@@ -28,6 +30,6 @@ class Page:
         for byte_num in range(8):
             self.data[start_index+byte_num] = val_to_bytes[byte_num]
         
-        # Put the value into the next available space into self.data(this is an array of bytes)
+        #4) Update the number of records the page contains
         self.num_records += 1
         return True
